@@ -7,9 +7,10 @@
 class CreateAddresses < ActiveRecord::Migration[7.0]
   def change
     create_table :addresses do |t|
-      t.string :cep, null: false, default: ''
-      t.string :line1, null: false, default: ''
-      t.string :line2, null: false, default: ''
+      t.string :zip_code, null: false, default: ''
+      t.string :street, null: false, default: ''
+      t.string :number, null: false, default: ''
+      t.string :complement, null: false, default: ''
       t.string :neighborhood, null: false, default: ''
       t.string :city, null: false, default: ''
       t.string :state, null: false, default: ''

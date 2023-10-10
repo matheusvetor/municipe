@@ -15,9 +15,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_03_184842) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string "cep", default: "", null: false
-    t.string "line1", default: "", null: false
-    t.string "line2", default: "", null: false
+    t.string "zip_code", default: "", null: false
+    t.string "street", default: "", null: false
+    t.string "number", default: "", null: false
+    t.string "complement", default: "", null: false
     t.string "neighborhood", default: "", null: false
     t.string "city", default: "", null: false
     t.string "state", default: "", null: false
