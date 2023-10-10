@@ -14,6 +14,8 @@ RSpec.describe Municipe, type: :model do
     it { is_expected.to validate_uniqueness_of(:cpf) }
     it { is_expected.to validate_uniqueness_of(:cns) }
     it { is_expected.to validate_uniqueness_of(:email) }
+
+    it { is_expected.to validate_cns }
   end
 
   context 'associations' do
