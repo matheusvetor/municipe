@@ -1,0 +1,34 @@
+pt-BR:
+  true: Sim
+  false: Não
+  helpers:
+    titles:
+      municipe:
+        show: Visualizar Munícipe
+        list: Munícipes
+        new: Adicionar Munícipe
+        edit: Editar Munícipe
+    links:
+      back: Voltar
+      edit: Editar
+      new: Adicionar
+      save: Salvar
+      actions: Ações
+  activerecord:
+    attributes:
+      municipe:
+        name: Nome
+        cpf: CPF
+        cns: CNS
+        phone: Telefone
+        birth_date_string: Data de Nascimento
+        address: Endereço
+        active: Ativo
+      address:
+        street: Rua
+        number: Número
+        complement: Complemento
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        zip_code: CEP

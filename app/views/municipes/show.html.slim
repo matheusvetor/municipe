@@ -1,0 +1,38 @@
+h2= t('helpers.titles.municipe.show')
+
+table.table
+  tr
+    th= t('activerecord.attributes.municipe.name')
+    td = @municipe.name
+  tr
+    th= t('activerecord.attributes.municipe.email')
+    td = @municipe.email
+  tr
+    th= t('activerecord.attributes.municipe.phone')
+    td = @municipe.phone
+  tr
+    th= t('activerecord.attributes.municipe.birth_date_string')
+    td = @municipe.birth_date_string
+  tr
+    th= t('activerecord.attributes.municipe.cpf')
+    td = @municipe.cpf
+  tr
+    th= t('activerecord.attributes.municipe.cns')
+    td = @municipe.cns
+  tr
+    th= t('activerecord.attributes.municipe.address')
+    td = @municipe.address
+  tr
+    th= t('activerecord.attributes.municipe.active')
+    td = @municipe.active
+  tr
+    th= t('activerecord.attributes.municipe.images')
+    td
+      = image_tag @municipe.photo.variant(resize_to_fill: [50, 50])
+      = image_tag @municipe.photo.variant(resize_to_fill: [200, 200])
+      = image_tag @municipe.photo.variant(resize_to_fill: [400, 400])
+  tr
+    td(colspan=2)
+
+= link_to t('helpers.links.back'), municipes_path, class: 'btn btn-success m-1'
+= link_to t('helpers.links.edit'), edit_municipe_path(@municipe), class: 'btn btn-primary'
