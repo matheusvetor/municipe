@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-alpine
+FROM ruby:3.3.0-alpine
 
 RUN apk --update --no-cache add build-base nodejs git zsh curl tzdata postgresql-dev \
                      postgresql-client libxslt-dev libxml2-dev imagemagick \
