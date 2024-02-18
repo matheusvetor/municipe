@@ -8,8 +8,8 @@ class Municipe < ApplicationRecord
   validates :phone, presence: true
   validates :birth_date, presence: true
   validates :cns, '::CnsBrazil::Cns': true
-  # validates :email, email: true
-  # validates :cpf, cpf: true
+  validates :email, email: true
+  validates :cpf, cpf: true
 
   has_one :address, dependent: :destroy
   has_one_attached :photo

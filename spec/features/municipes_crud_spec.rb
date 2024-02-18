@@ -61,11 +61,13 @@ RSpec.describe 'Municipes CRUD', type: :feature do
 
       expect(page).to have_text('Munícipe atualizado com sucesso.')
 
-      expect(Municipe.order(:created_at).last.name).to eq(municipe_params.name)
-      expect(Municipe.order(:created_at).last.email).to eq(municipe_params.email)
-      expect(Municipe.order(:created_at).last.cpf).to eq(municipe_params.cpf)
-      expect(Municipe.order(:created_at).last.cns).to eq(municipe_params.cns)
-      expect(Municipe.order(:created_at).last.phone).to eq(municipe_params.phone)
+      municipe = Municipe.order(:created_at).last
+
+      expect(municipe).to eq(municipe_params.name)
+      expect(municipe).to eq(municipe_params.email)
+      expect(municipe).to eq(municipe_params.cpf)
+      expect(municipe).to eq(municipe_params.cns)
+      expect(municipe).to eq(municipe_params.phone)
     end
 
     scenario 'with invalid input' do
