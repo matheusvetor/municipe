@@ -28,9 +28,10 @@ table.table
   tr
     th= t('activerecord.attributes.municipe.images')
     td
-      = image_tag @municipe.photo.variant(resize_to_fill: [50, 50])
-      = image_tag @municipe.photo.variant(resize_to_fill: [200, 200])
-      = image_tag @municipe.photo.variant(resize_to_fill: [400, 400])
+      - if @municipe.photo.attached?
+        = image_tag @municipe.photo.variant(resize_to_fill: [50, 50])
+        = image_tag @municipe.photo.variant(resize_to_fill: [200, 200])
+        = image_tag @municipe.photo.variant(resize_to_fill: [400, 400])
   tr
     td(colspan=2)
 
