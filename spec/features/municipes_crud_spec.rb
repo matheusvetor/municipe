@@ -30,7 +30,6 @@ RSpec.describe 'Municipes CRUD', type: :feature do
           fill_in 'municipe_address_attributes_ibge_code', with: address_params.ibge_code
 
           click_button 'Salvar'
-          # puts page.body
 
           expect(page).to have_text('Munícipe criado com sucesso.')
         end.to change { Municipe.count }.by(1)
@@ -39,7 +38,6 @@ RSpec.describe 'Municipes CRUD', type: :feature do
       end
     end
   end
-
 
   describe 'update' do
     let!(:municipe) { create(:municipe) }
@@ -63,11 +61,11 @@ RSpec.describe 'Municipes CRUD', type: :feature do
 
       municipe = Municipe.order(:created_at).last
 
-      expect(municipe).to eq(municipe_params.name)
-      expect(municipe).to eq(municipe_params.email)
-      expect(municipe).to eq(municipe_params.cpf)
-      expect(municipe).to eq(municipe_params.cns)
-      expect(municipe).to eq(municipe_params.phone)
+      expect(municipe.name).to eq(municipe_params.name)
+      expect(municipe.email).to eq(municipe_params.email)
+      expect(municipe.cpf).to eq(municipe_params.cpf)
+      expect(municipe.cns).to eq(municipe_params.cns)
+      expect(municipe.phone).to eq(municipe_params.phone)
     end
 
     scenario 'with invalid input' do

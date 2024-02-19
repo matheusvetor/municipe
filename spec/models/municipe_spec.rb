@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Municipe, type: :model do
-  let(:municipe) { build(:municipe) }
+  let(:municipe) { build(:municipe, cns: "abc") }
 
   context 'validations' do
     it { is_expected.to validate_presence_of(:name) }
@@ -11,8 +11,9 @@ RSpec.describe Municipe, type: :model do
     it { is_expected.to validate_presence_of(:birth_date) }
     it { is_expected.to validate_presence_of(:phone) }
 
-    it { is_expected.to validate_uniqueness_of(:cpf) }
-    it { is_expected.to validate_uniqueness_of(:cns) }
+    it { is_expected.to validate_uniqueness_of(:cpf).case_insensitive }
+    it { is_expected.to validate_uniqueness_of(:cns).case_insensitive }
+
     it { is_expected.to validate_uniqueness_of(:email) }
 
     it { is_expected.to validate_cns }

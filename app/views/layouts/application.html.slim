@@ -23,7 +23,7 @@ html
               = link_to 'Munícipes', municipes_path, class: 'nav-link py-3 px-0 px-lg-3 rounded'
     .page-section(style="padding-top: 10rem;")
       .container
-        /- flash.each do |key, message|
+        - flash.each do |key, message|
           div(id="flash#{key}" class="flash-#{key}")
             = message
         = yield

@@ -9,5 +9,9 @@ FactoryBot.define do
     phone { Faker::PhoneNumber.cell_phone }
     birth_date_string { Faker::Date.birthday(min_age: 18, max_age: 65).strftime('%d/%m/%Y') }
     active { [true, false].sample }
+
+    after(:build) do |municipe|
+      municipe.address ||= FactoryBot.build(:address, municipe: municipe)
+    end
   end
 end

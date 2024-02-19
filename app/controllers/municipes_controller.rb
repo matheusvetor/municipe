@@ -1,4 +1,6 @@
 class MunicipesController < ApplicationController
+  before_action :load_municipe, only: %i[show edit update]
+
   def index
     @pagy, @municipes = pagy(Municipe.all)
   end
@@ -19,17 +21,11 @@ class MunicipesController < ApplicationController
     end
   end
 
-  def edit
-    @municipe = Municipe.find(params[:id])
-  end
+  def edit; end
 
-  def show
-    @municipe = Municipe.find(params[:id])
-  end
+  def show; end
 
   def update
-    @municipe = Municipe.find(params[:id])
-
     if @municipe.update(municipe_params)
       redirect_to municipes_path, notice: 'Munícipe atualizado com sucesso.'
     else
@@ -39,6 +35,10 @@ class MunicipesController < ApplicationController
   end
 
   private
+
+  def load_municipe
+    @municipe = Municipe.find(params[:id])
+  end
 
   def municipe_params
     params.require(:municipe).permit(:name, :cpf, :cns, :email, :phone, :birth_date_string, :active, :photo,
