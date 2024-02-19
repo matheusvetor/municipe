@@ -1,3 +1,8 @@
+require 'twilio-ruby'
+require 'sendgrid-ruby'
+
+include SendGrid
+
 class NotifyMunicipeService
   def initialize(municipe)
     @municipe = municipe
