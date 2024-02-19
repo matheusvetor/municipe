@@ -1,8 +1,3 @@
-require 'twilio-ruby'
-require 'sendgrid-ruby'
-
-include SendGrid
-
 class NotifyMunicipeService
   def initialize(municipe)
     @municipe = municipe
@@ -35,7 +30,7 @@ class NotifyMunicipeService
       m.from = SendGrid::Email.new(email: ENV['SENDER_EMAIL'])
       m.subject = I18n.t('notifications.subject')
       m.to = SendGrid::Email.new(email: @municipe.email)
-      m.html =  Content.new(type: 'text/plain', value: message)
+      m.content =  Content.new(type: 'text/plain', value: message)
     end
 
     response = sg.client.mail._('send').post(request_body: mail.to_json)
