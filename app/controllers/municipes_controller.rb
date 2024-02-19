@@ -42,6 +42,6 @@ class MunicipesController < ApplicationController
 
   def municipe_params
     params.require(:municipe).permit(:name, :cpf, :cns, :email, :phone, :birth_date_string, :active, :photo,
-                      address_attributes: [:street, :number, :complement, :neighborhood, :city, :state, :zip_code, :ibge_code])
+                      address_attributes: [:id, :street, :number, :complement, :neighborhood, :city, :state, :zip_code, :ibge_code])
   end
 end
