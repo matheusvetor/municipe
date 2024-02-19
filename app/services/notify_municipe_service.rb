@@ -1,5 +1,3 @@
-include SendGrid
-
 class NotifyMunicipeService
   def initialize(municipe)
     @municipe = municipe
