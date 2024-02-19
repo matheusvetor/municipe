@@ -31,6 +31,8 @@ gem "stringify_date"
 gem "cns_brazil", github: "matheusvetor/CnsBrazil"
 gem "cpf_cnpj"
 gem "pagy"
+gem "rails-observers"
+gem "twilio-ruby", "~> 6.11"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -10,6 +10,7 @@ class Municipe < ApplicationRecord
   validates :cns, '::CnsBrazil::Cns': true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :cpf_validator
+  validate :birth_validator
 
   has_one :address, dependent: :destroy
   has_one_attached :photo
@@ -18,6 +19,10 @@ class Municipe < ApplicationRecord
   private
 
   def cpf_validator
-    errors.add(:cpf, 'is invalid') unless CPF.valid?(cpf)
+    errors.add(:cpf, t('invalid')) unless CPF.valid?(cpf)
+  end
+
+  def birth_validator
+    errors.add(:birth_date, t('invalid')) if birth_date.blank? || birth_date > Date.today
   end
 end

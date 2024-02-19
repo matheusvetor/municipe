@@ -1,6 +1,10 @@
 pt-BR:
   true: Sim
   false: Não
+  notifications:
+    subject: "Notificação do Munícipe"
+    new_municipe: "Olá, %{name}, seu registro foi criado com sucesso."
+    new_municipe: "Olá, %{name}, seu registro foi atualizado com sucesso."
   flash:
     actions:
       create: "%{resource} criado com sucesso."
