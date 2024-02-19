@@ -14,9 +14,9 @@ class MunicipesController < ApplicationController
     @municipe = Municipe.new(municipe_params)
 
     if @municipe.save
-      redirect_to municipes_path, notice: 'Munícipe criado com sucesso.'
+      redirect_to municipes_path, notice: I18n.t('flash.actions.create', resource: 'Munícipe')
     else
-      flash[:error] = 'Erro ao criar o Munícipe.'
+      flash[:error] = I18n.t('flash.errors.create', resource: 'Munícipe')
       render :new
     end
   end
@@ -27,9 +27,9 @@ class MunicipesController < ApplicationController
 
   def update
     if @municipe.update(municipe_params)
-      redirect_to municipes_path, notice: 'Munícipe atualizado com sucesso.'
+      redirect_to municipes_path, notice: I18n.t('flash.actions.update', resource: 'Munícipe')
     else
-      flash[:error] = 'Erro ao atualizar o Munícipe.'
+      flash[:error] = I18n.t('flash.errors.update', resource: 'Munícipe')
       render :new
     end
   end

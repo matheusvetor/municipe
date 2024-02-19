@@ -1,6 +1,13 @@
 pt-BR:
   true: Sim
   false: Não
+  flash:
+    actions:
+      create: "%{resource} criado com sucesso."
+      update: "%{resource} atualizado com sucesso."
+    errors:
+      create: "Erro ao criar %{resource}."
+      update: "Erro ao atualizar %{resource}."
   helpers:
     titles:
       municipe:
@@ -24,6 +31,7 @@ pt-BR:
         birth_date_string: Data de Nascimento
         address: Endereço
         active: Ativo
+        photo: Foto
       address:
         street: Rua
         number: Número
@@ -32,3 +40,4 @@ pt-BR:
         city: Cidade
         state: Estado
         zip_code: CEP
+        ibge_code: Código IBGE

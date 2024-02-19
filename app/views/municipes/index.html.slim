@@ -1,4 +1,9 @@
 
+- flash.each do |key, message|
+  div(id="flash#{key}" class="alert alert-secondary")
+    = message
+    button(type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close")
+
 h2= t('helpers.titles.municipe.list')
 
 table.table
@@ -20,11 +25,15 @@ table.table
         td = municipe.email
         td = municipe.phone
         td = municipe.birth_date_string
-        td = municipe.active
         td
-          = link_to 'Visualizar', municipe_path(municipe), class: 'btn btn-primary'
-          = link_to 'Editar', edit_municipe_path(municipe), class: 'btn btn-success m-1'
+          - if municipe.active
+            span(class="badge bg-success") = t('true')
+          - else
+            span(class="badge bg-danger") = t('false')
+        td
+          = link_to 'Visualizar', municipe_path(municipe), class: 'btn btn-primary btn-sm'
+          = link_to 'Editar', edit_municipe_path(municipe), class: 'btn btn-success m-1 btn-sm'
 
-= link_to t('helpers.links.new'), new_municipe_path, class: 'btn btn-primary'
+= link_to t('helpers.links.new'), new_municipe_path, class: 'btn btn-primary btn-lg'
 
 = pagy_nav(@pagy) if @pagy.pages > 1
